@@ -1,16 +1,26 @@
 import { Component } from 'react';
-// import Container from './components/Container';
+import Container from './components/Container';
+import SearchForm from './components/SearchForm';
 import WeatherDisplay from './components/WeatherDisplay';
 
-const PLACES = ['London', 'Moscow', 'Kiev', 'Minsk'];
-
 class App extends Component {
+  state = {
+    query: '',
+  };
+
+  handleSubmit = newSearch => {
+    this.setState({ query: newSearch });
+  };
+
   render() {
+    const { query } = this.state;
     return (
-      <div className="App">
-        <WeatherDisplay name={'12345'} />
-      </div>
+      <Container>
+        <SearchForm onHandleSubmit={this.handleSubmit} />
+        {query && <WeatherDisplay name={query} />}
+      </Container>
     );
   }
 }
+
 export default App;
