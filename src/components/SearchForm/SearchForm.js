@@ -17,19 +17,18 @@ function SearchForm({ onHandleSubmit }) {
   return (
     <header className={s.header}>
       <form className={s.form} onSubmit={onSubmit}>
-        <button type="submit" className={s.btn}>
-          <span className={s.label}>Search</span>
-        </button>
-
         <input
           className={s.input}
           type="text"
           value={query}
           autoComplete="off"
           autoFocus
-          placeholder="Enter a city"
+          placeholder="Search city..."
           onChange={({ target }) => setQuery(target.value)}
         />
+        <button type="submit" className={s.btn}>
+          <span className={s.label}>Search</span>
+        </button>
       </form>
     </header>
   );

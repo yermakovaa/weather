@@ -1,26 +1,21 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import Container from './components/Container';
 import SearchForm from './components/SearchForm';
 import WeatherDisplay from './components/WeatherDisplay';
 
-class App extends Component {
-  state = {
-    query: '',
+function App() {
+  const [query, setQuery] = useState('');
+
+  const handleSubmit = newSearch => {
+    setQuery(newSearch);
   };
 
-  handleSubmit = newSearch => {
-    this.setState({ query: newSearch });
-  };
-
-  render() {
-    const { query } = this.state;
-    return (
-      <Container>
-        <SearchForm onHandleSubmit={this.handleSubmit} />
-        {query && <WeatherDisplay name={query} />}
-      </Container>
-    );
-  }
+  return (
+    <Container>
+      <SearchForm onHandleSubmit={handleSubmit} />
+      <WeatherDisplay name={query} />
+    </Container>
+  );
 }
 
 export default App;

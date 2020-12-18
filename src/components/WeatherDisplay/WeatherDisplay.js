@@ -1,37 +1,71 @@
-import { Component } from 'react';
-// import PropTypes from 'prop-types';
-import apiService from '../../services/apiService';
+import { useState, useEffect } from 'react';
+import weatherApi from '../../services/weatherApi ';
+import ErrorView from '../ErrorView';
+import DataView from '../DataView';
 // import s from './WeatherDisplay.module.css';
 
-class WeatherDisplay extends Component {
-  state = {
-    weatherData: null,
-  };
+const Status = {
+  IDLE: 'idle',
+  PENDING: 'pending',
+  RESOLVED: 'resolved',
+  REJECTED: 'rejected',
+};
 
-  componentDidMount() {
-    const name = this.props.name;
-    apiService(name).then(data => {
-      this.setState({ weatherData: data });
-    });
+function WeatherDisplay({ name }) {
+  const [weatherData, setWeatherData] = useState(null);
+  const [error, setError] = useState(null);
+  const [status, setStatus] = useState(Status.IDLE);
+
+  useEffect(() => {
+    if (!name) {
+      return;
+    }
+
+    setStatus(Status.PENDING);
+    weatherApi(name)
+      .then(result => {
+        const { name } = result;
+        const { country } = result.sys;
+        const { temp, temp_min, temp_max, feels_like, humidity } = result.main;
+        const { description, icon } = result.weather[0];
+        const { speed, deg } = result.wind;
+
+        setWeatherData({
+          name,
+          country,
+          description,
+          icon,
+          temp: temp.toFixed(1),
+          feels_like: feels_like.toFixed(1),
+          temp_min: temp_min.toFixed(1),
+          temp_max: temp_max.toFixed(1),
+          speed,
+          deg,
+          humidity,
+        });
+        setStatus(Status.RESOLVED);
+      })
+      .catch(error => {
+        setError(error);
+        setStatus(Status.REJECTED);
+      });
+  }, [name]);
+
+  if (status === Status.IDLE) {
+    return <div>Введите город.</div>;
   }
 
-  render() {
-    const weatherData = this.state.weatherData;
-    if (!weatherData) return <div>Loading</div>;
-    const weather = weatherData.weather[0];
-    const iconUrl = `http://openweathermap.org/img/w/'${weather.icon}.png`;
-    return (
-      <div>
-        <h1>
-          {weather.main} in {weatherData.name}
-          <img src={iconUrl} alt={weatherData.description} />
-        </h1>
-        <p>Current: {weatherData.main.temp}°С</p>
-        <p>High: {weatherData.main.temp_max}°С</p>
-        <p>Low: {weatherData.main.temp_min}°С</p>
-        <p>Wind Speed: {weatherData.wind.speed} м/с</p>
-      </div>
-    );
+  if (status === Status.PENDING) {
+    return <div>Загрузка...</div>;
+  }
+
+  if (status === Status.REJECTED) {
+    return <ErrorView texterror={error.message} />;
+  }
+
+  if (status === Status.RESOLVED) {
+    // return <div>Прошел фетч</div>;
+    return <DataView weatherData={weatherData} />;
   }
 }
 
