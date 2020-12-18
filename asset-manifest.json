@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.c4ce3fca.chunk.css",
-    "main.js": "/static/js/main.ab02d0b9.chunk.js",
-    "main.js.map": "/static/js/main.ab02d0b9.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.9c6700f5.js",
-    "runtime-main.js.map": "/static/js/runtime-main.9c6700f5.js.map",
-    "static/css/2.f7a7e916.chunk.css": "/static/css/2.f7a7e916.chunk.css",
-    "static/js/2.9f4e79d8.chunk.js": "/static/js/2.9f4e79d8.chunk.js",
-    "static/js/2.9f4e79d8.chunk.js.map": "/static/js/2.9f4e79d8.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.f7a7e916.chunk.css.map": "/static/css/2.f7a7e916.chunk.css.map",
-    "static/css/main.c4ce3fca.chunk.css.map": "/static/css/main.c4ce3fca.chunk.css.map",
-    "static/js/2.9f4e79d8.chunk.js.LICENSE.txt": "/static/js/2.9f4e79d8.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/static/media/bg.25145117.jpg",
-    "static/media/oops.72ac764a.jpg": "/static/media/oops.72ac764a.jpg"
+    "main.css": "/weather/static/css/main.a20ad691.chunk.css",
+    "main.js": "/weather/static/js/main.ab02d0b9.chunk.js",
+    "main.js.map": "/weather/static/js/main.ab02d0b9.chunk.js.map",
+    "runtime-main.js": "/weather/static/js/runtime-main.7e5d5f8a.js",
+    "runtime-main.js.map": "/weather/static/js/runtime-main.7e5d5f8a.js.map",
+    "static/css/2.f7a7e916.chunk.css": "/weather/static/css/2.f7a7e916.chunk.css",
+    "static/js/2.9f4e79d8.chunk.js": "/weather/static/js/2.9f4e79d8.chunk.js",
+    "static/js/2.9f4e79d8.chunk.js.map": "/weather/static/js/2.9f4e79d8.chunk.js.map",
+    "index.html": "/weather/index.html",
+    "static/css/2.f7a7e916.chunk.css.map": "/weather/static/css/2.f7a7e916.chunk.css.map",
+    "static/css/main.a20ad691.chunk.css.map": "/weather/static/css/main.a20ad691.chunk.css.map",
+    "static/js/2.9f4e79d8.chunk.js.LICENSE.txt": "/weather/static/js/2.9f4e79d8.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/weather/static/media/bg.25145117.jpg",
+    "static/media/oops.72ac764a.jpg": "/weather/static/media/oops.72ac764a.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9c6700f5.js",
+    "static/js/runtime-main.7e5d5f8a.js",
     "static/css/2.f7a7e916.chunk.css",
     "static/js/2.9f4e79d8.chunk.js",
-    "static/css/main.c4ce3fca.chunk.css",
+    "static/css/main.a20ad691.chunk.css",
     "static/js/main.ab02d0b9.chunk.js"
   ]
 }
