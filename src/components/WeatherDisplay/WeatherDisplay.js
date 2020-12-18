@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import weatherApi from '../../services/weatherApi ';
 import ErrorView from '../ErrorView';
 import DataView from '../DataView';
+import LoaderComponent from '../LoaderComponent';
 // import s from './WeatherDisplay.module.css';
 
 const Status = {
@@ -52,11 +53,11 @@ function WeatherDisplay({ name }) {
   }, [name]);
 
   if (status === Status.IDLE) {
-    return <div>Введите город.</div>;
+    return null;
   }
 
   if (status === Status.PENDING) {
-    return <div>Загрузка...</div>;
+    return <LoaderComponent />;
   }
 
   if (status === Status.REJECTED) {
@@ -64,7 +65,6 @@ function WeatherDisplay({ name }) {
   }
 
   if (status === Status.RESOLVED) {
-    // return <div>Прошел фетч</div>;
     return <DataView weatherData={weatherData} />;
   }
 }

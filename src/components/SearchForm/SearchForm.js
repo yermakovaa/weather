@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 import s from './SearchForm.module.css';
 
@@ -8,7 +10,7 @@ function SearchForm({ onHandleSubmit }) {
   const onSubmit = e => {
     e.preventDefault();
     if (query.trim() === '') {
-      return alert('😱 Please enter a value for search images!');
+      return toast.info('😱 Please enter a value for search city!');
     }
     onHandleSubmit(query);
     setQuery('');

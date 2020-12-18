@@ -1,0 +1,5 @@
+.wrapper {
+  padding: 70px 40px;
+  background-color: rgba(173, 216, 230, 0.6);
+  box-shadow: var(--boxShadow);
+}

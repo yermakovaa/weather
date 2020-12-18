@@ -1,10 +1,8 @@
-import Clock from '../Clock';
-import { Month, Weekday, Day } from '../../helpers/utils';
-import clockIcon from '../../images/clock.png';
+import DateTime from '../DateTime';
 import tempIcon from '../../images/ico-temperature.png';
 import windIcon from '../../images/wind.png';
 import dropIcon from '../../images/drop.png';
-// import s from './DataView.module.css';
+import s from './DataView.module.css';
 
 function DataView({
   weatherData: {
@@ -21,22 +19,17 @@ function DataView({
   },
 }) {
   return (
-    <main>
+    <main className={s.wrapper}>
+      <DateTime />
       <div>
-        <img src={clockIcon} alt="time icon" width="32" height="32" />
-        <Clock />
-        <p>
-          {Weekday}, {Month} {Day}
-        </p>
-      </div>
-      <div>
-        <img
-          src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-          alt="weather icon"
-        />
         <h1>
           {name}, {country}
         </h1>
+        <img
+          src={`http://openweathermap.org/img/w/${icon}.png`}
+          alt="weather icon"
+          className={s.logo}
+        />
         <p className="description">{description}</p>
       </div>
       <img src={tempIcon} alt="" />
