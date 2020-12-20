@@ -1,5 +1,5 @@
 :root {
-  --primaryTextColor: #212121;
+  --primaryTextColor: #4682b4;
   --secondaryTextColor: #566573;
   --boxShadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
@@ -27,8 +27,8 @@ body {
       rgba(47, 48, 58, 0.3),
       rgba(47, 48, 58, 0.3)
     ),
-    url(./images/bg.jpg);
-  background-size: cover;
+    url(./images/1.jpg);
+  /* background-size: cover; */
 }
 
 img {

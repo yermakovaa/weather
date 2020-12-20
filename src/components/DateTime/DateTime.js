@@ -24,18 +24,20 @@ function Clock() {
   };
 
   return (
-    <div className={s.wrapper}>
+    <div className={s.container}>
       <img
         className={s.icon}
         src={clockIcon}
         alt="time icon"
-        width="32"
-        height="32"
+        width="38"
+        height="38"
       />
-      <p className={s.time}>{time}</p>
-      <p className={s.date}>
-        {Weekday}, {Month} {Day}
-      </p>
+      <div className={s.wrapper}>
+        <p className={s.time}>{time}</p>
+        <p className={s.date}>
+          {Weekday}, {Month} {Day}
+        </p>
+      </div>
     </div>
   );
 }
